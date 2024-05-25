@@ -1,5 +1,6 @@
-# Apprendre à coder avec Python - Université Libre de Bruxelles (ULB)
+# Apprendre à coder avec Python - Université Libre de Bruxelles (ULB) UpyLaB 
 #https://www.fun-mooc.fr/en/cours/apprendre-a-coder-avec-python/
+#https://upylab2.ulb.ac.be/
 
 # Exercice 1 : Calculer la circonference et la surface d'un cercle dont l'utilisateur renseigne le rayon
 import math
