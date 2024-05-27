@@ -11,3 +11,19 @@
 # enfin, si la valeur 4 est assignée à la variable c, alors le programme affiche la valeur de a^2 + a.b ;
 
 # et si c contient une autre valeur, le programme affiche le message Erreur.
+a = int(input())
+b = int(input())
+c = int(input())
+
+if c == 1:
+    result = a + b
+elif c == 2:
+    result = a - b
+elif c == 3:
+    result = a * b
+elif c == 4:
+    result = a**2 + a * b
+else:
+    result = "Erreur"
+
+print(result)
