@@ -13,4 +13,4 @@ if a < 0 or b < 0:
     print("Erreur")
 else:
     result = math.sqrt(a * b)
-    print("The geometric mean is:", result)
+    print(result)
