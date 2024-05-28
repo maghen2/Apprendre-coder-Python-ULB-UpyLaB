@@ -17,42 +17,38 @@
 # 15 : le joueur parie sur la couleur rouge
 # 16 : le joueur parie sur la couleur noire.
 
-numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-for numero in numeros:
-    if numero % 2 == 0:
-        print(f"{numero} est de couleur rouge")
+# Read the player's bet and the drawn number
+bet = int(input("Enter the player's bet: "))
+drawn_number = int(input("Enter the drawn number: "))
+
+# Calculate the amount won by the player
+if bet >= 0 and bet <= 12:
+    if bet == drawn_number:
+        amount_won = 12 * 10
     else:
-        print(f"{numero} est de couleur bleue")
-        pari = int(input("Entrez le pari du joueur : "))
+        amount_won = 0
+elif bet == 13:
+    if drawn_number % 2 == 0:
+        amount_won = 2 * 10
+    else:
+        amount_won = 0
+elif bet == 14:
+    if drawn_number % 2 != 0:
+        amount_won = 2 * 10
+    else:
+        amount_won = 0
+elif bet == 15:
+    if drawn_number % 2 == 0 and drawn_number != 0:
+        amount_won = 2 * 10
+    else:
+        amount_won = 0
+elif bet == 16:
+    if drawn_number % 2 != 0 or drawn_number == 0:
+        amount_won = 2 * 10
+    else:
+        amount_won = 0
+else:
+    amount_won = 0
 
-        numero_tirage = int(input("Entrez le numéro issu du tirage : "))
-
-        if pari >= 0 and pari <= 12:
-            if pari == numero_tirage:
-                montant_gagne = 12 * 10
-            else:
-                montant_gagne = 0
-        elif pari == 13:
-            if numero_tirage % 2 == 0:
-                montant_gagne = 2 * 10
-            else:
-                montant_gagne = 0
-        elif pari == 14:
-            if numero_tirage % 2 != 0:
-                montant_gagne = 2 * 10
-            else:
-                montant_gagne = 0
-        elif pari == 15:
-            if numero_tirage % 2 != 0 and numero_tirage != 0:
-                montant_gagne = 2 * 10
-            else:
-                montant_gagne = 0
-        elif pari == 16:
-            if numero_tirage % 2 == 0 and numero_tirage != 0:
-                montant_gagne = 2 * 10
-            else:
-                montant_gagne = 0
-        else:
-            montant_gagne = 0
-
-        print(f"Le montant gagné par le joueur est de {montant_gagne} euros.")
+# Print the amount won by the player
+print("Amount won by the player:", amount_won)
