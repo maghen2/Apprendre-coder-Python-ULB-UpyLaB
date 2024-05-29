@@ -10,8 +10,12 @@ def alea_dice(s):
     dice1 = random.randint(1, 6)
     dice2 = random.randint(1, 6)
     dice3 = random.randint(1, 6)
-    
-    if dice1 == 4 and dice2 == 2 and dice3 == 1:
+    #print(dice1, dice2, dice3)
+
+    if dice1 != dice2 and dice1 != dice3 and dice2 != dice3 and dice1 in [4, 2, 1] and dice2 in [4, 2, 1] and dice3 in [4, 2, 1]:
         return True
     else:
         return False
+    
+print(alea_dice(1)) # doit retourner False
+print(alea_dice(25)) # doit retourner True
