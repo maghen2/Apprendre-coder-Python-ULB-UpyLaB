@@ -26,7 +26,7 @@ reds = [1,3,5,7,9,7,12]
 blacks = [2,4,6,8,11,10]
 
 # Calculate the amount won by the player
-if bet >= 0 and bet <= 16 and drawn_number >= 0 and bet <= 12:
+if bet >= 0 and bet <= 16 and drawn_number >= 0 and drawn_number <= 12:
     if bet == drawn_number:
         amount_won = 12 * betting
 
