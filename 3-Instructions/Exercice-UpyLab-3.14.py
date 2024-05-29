@@ -41,7 +41,8 @@ while attempts < 6:
     attempts += 1 # Increment the number of attempts
 
 # The player didn't guess the secret number within the maximum number of attempts
+guess = int(input()) # Read the player's guess for last time
 if guess == secret_number and attempts == 6 :
      print("Gagné en", attempts, "essai(s) !")
-else:
+elif attempts >= 6:
     print("Perdu ! Le secret était", secret_number)
