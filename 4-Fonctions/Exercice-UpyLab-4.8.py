@@ -64,3 +64,17 @@
 
 
 # Nous vous demandons d’écrire une fonction catalan(n), où n est un nombre entier positif ou nul, qui renvoie la valeur du  n-ième nombre de Catalan.
+
+def catalan(n):
+    if n == 0:
+        return 1
+    else:
+        numerator = 1
+        denominator = 1
+        for i in range(1, n+1):
+            numerator *= (2*n - i + 1)
+            denominator *= i + 1
+        return numerator // denominator
+    
+print(catalan(5))
+print(catalan(0))
