@@ -53,6 +53,6 @@ heure_coucher_E666 = int(input())
 
 for heure in range(24):
     if soleil_leve(heure_lever_E1515, heure_coucher_E1515, heure) or soleil_leve(heure_lever_E666, heure_coucher_E666, heure):
-        print(heure, end=" \n")
+        print(heure, end="\n")
     else:
-        print(heure, end=" * \n")
+        print(heure, end=" *\n")
