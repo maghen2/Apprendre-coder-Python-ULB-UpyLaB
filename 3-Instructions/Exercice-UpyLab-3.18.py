@@ -9,39 +9,13 @@
 # Après le milieu de la ligne, les chiffres vont en décroissant modulo 10 (symétriquement au début de la ligne).
 
 # Notons qu’à la dernière ligne, aucune espace n’est imprimée avant d’écrire les chiffres 0123....
-# Exemple 1
-# Avec la donnée lue suivante :
 
-# 1
-# le résultat à imprimer vaudra :
+n = int(input())
 
-# 1
-# Exemple 2
-# Avec la donnée lue suivante :
-
-# 2
-# le résultat à imprimer vaudra :
-
-#  1
-# 232
-# Exemple 3
-# Avec la donnée lue suivante :
-
-# 10
-# le résultat à imprimer vaudra :
-
-#          1
-#         232
-#        34543
-#       4567654
-#      567898765
-#     67890109876
-#    7890123210987
-#   890123454321098
-#  90123456765432109
-# 0123456789876543210
-# Consignes
-# Attention, nous rappelons que votre code sera évalué en fonction de ce qu’il affiche, donc veillez à n’imprimer que le résultat attendu.
-
-# En particulier, il ne faut rien écrire à l’intérieur des appels à input (int(input()) et non int(input("Entrer un nombre : ")) par exemple), ni ajouter du texte dans ce qui est imprimé.
-
+for i in range(1, n+1):
+    print(" "*(n-i), end="")
+    for j in range(i % 10, 0, -1):
+        print(j, end="")
+    for j in range(1, i % 10 + 1):
+        print(j, end="")
+    print()
