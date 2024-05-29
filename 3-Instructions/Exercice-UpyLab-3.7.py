@@ -14,41 +14,30 @@
 # nombre entre 0 et 12 : le joueur parie sur le numéro correspondant
 # 13 : le joueur parie sur pair
 # 14 : le joueur parie sur impair
-# 15 : le joueur parie sur la couleur rouge
+# 15 : le joueur parie sur la couleur rouge 
 # 16 : le joueur parie sur la couleur noire.
 
 # Read the player's bet and the drawn number
-bet = int(input("Enter the player's bet: "))
-drawn_number = int(input("Enter the drawn number: "))
+bet = int(input())
+drawn_number = int(input())
+amount_won = 0
+betting = 10
+reds = [1,3,5,7,9,7,12]
+blacks = [2,4,6,8,11,10]
 
 # Calculate the amount won by the player
-if bet >= 0 and bet <= 12:
+if bet >= 0 and bet <= 16 and drawn_number >= 0 and bet <= 12:
     if bet == drawn_number:
-        amount_won = 12 * 10
-    else:
-        amount_won = 0
-elif bet == 13:
-    if drawn_number % 2 == 0:
-        amount_won = 2 * 10
-    else:
-        amount_won = 0
-elif bet == 14:
-    if drawn_number % 2 != 0:
-        amount_won = 2 * 10
-    else:
-        amount_won = 0
-elif bet == 15:
-    if drawn_number % 2 == 0 and drawn_number != 0:
-        amount_won = 2 * 10
-    else:
-        amount_won = 0
-elif bet == 16:
-    if drawn_number % 2 != 0 or drawn_number == 0:
-        amount_won = 2 * 10
-    else:
-        amount_won = 0
-else:
-    amount_won = 0
+        amount_won = 12 * betting
+
+    elif bet == 13 and drawn_number % 2 == 0:
+        amount_won = 2 * betting
+    elif bet == 14 and drawn_number % 2 != 0:
+        amount_won = 2 * betting
+    elif bet == 15 and drawn_number in reds:
+        amount_won = 2 * betting
+    elif bet == 16 and drawn_number in blacks :
+        amount_won = 2 * betting
 
 # Print the amount won by the player
-print("Amount won by the player:", amount_won)
+print(amount_won)
