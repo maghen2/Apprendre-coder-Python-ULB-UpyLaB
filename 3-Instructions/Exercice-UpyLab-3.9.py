@@ -31,8 +31,8 @@
 # Pour rappel, la réponse attendue est 42 ; celle-ci a été calculée par le script de Sébastien dans la vidéo d'introduction de la boucle while, en section 3.4.1. du MOOC "Apprendre à coder avec Python".
 # Cette réponse n'est pas à faire calculer par votre programme, qui se contente de la demander à l'utilisateur.
 
-answer = int(input()) # Read the number of folds needed to reach the Moon
+answer = int(input("Combien de plis sont-ils nécessaires pour se rendre sur la Lune ? : ")) # Read the number of folds needed to reach the Moon
 while answer != 42:
     print("Mauvaise réponse.")
-    answer = int(input()) #"Combien de plis sont-ils nécessaires pour se rendre sur la Lune ? : "
+    answer = int(input("Combien de plis sont-ils nécessaires pour se rendre sur la Lune ? : "))
 print("Bravo !")
