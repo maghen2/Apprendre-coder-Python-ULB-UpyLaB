@@ -53,7 +53,7 @@ elif polyhedron == "C":
 elif polyhedron == "O":
     volume = (2 ** 0.5 / 3) * edge_length ** 3
 elif polyhedron == "D":
-    volume = (15 + 7 * 5 ** 0.5 / 4) * edge_length ** 3
+    volume = ((15 + 7 * 5 ** 0.5) / 4) * edge_length ** 3
 elif polyhedron == "I":
     volume = (5 * (3 + 5 ** 0.5) / 12) * edge_length ** 3
 else:
