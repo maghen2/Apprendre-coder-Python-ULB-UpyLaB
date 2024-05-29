@@ -8,18 +8,20 @@
 # Si la somme d’argent avancée par le client n’est pas suffisante pour effectuer l’achat, la fonction retournera cinq valeurs None.
 def rendre_monnaie(prix, x20, x10, x5, x2, x1):
     paiement = x20 * 20 + x10 * 10 + x5 * 5 + x2 * 2 + x1
-    if total_avance < prix:
+    montant_rendu = paiement - prix
+    if montant_rendu < 0:
         return None, None, None, None, None
     
-    montant_rendu = total_avance - prix
-    rendu_20 = montant_rendu // 20
+    x20 = montant_rendu // 20
     montant_rendu %= 20
-    rendu_10 = montant_rendu // 10
+    x10 = montant_rendu // 10
     montant_rendu %= 10
-    rendu_5 = montant_rendu // 5
+    x5 = montant_rendu // 5
     montant_rendu %= 5
-    rendu_2 = montant_rendu // 2
+    x2 = montant_rendu // 2
     montant_rendu %= 2
-    rendu_1 = montant_rendu
+    x1 = montant_rendu
     
-    return rendu_20, rendu_10, rendu_5, rendu_2, rendu_1
+    return x20, x10, x5, x2, x1
+
+print(rendre_monnaie(38, 1, 1, 1, 1, 1)) # doit retourner (0, 0, 0, 0, 0)
