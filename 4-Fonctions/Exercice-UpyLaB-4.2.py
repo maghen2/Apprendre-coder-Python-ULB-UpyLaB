@@ -27,5 +27,30 @@
 # Enfin, si l'heure du lever est la même que l'heure du coucher :
 #      - soit toutes deux valent 12, cela signifie que le soleil ne se lève pas de la journée,
 #      - soit toutes les deux valent 0, cela signifie que le soleil ne se couche pas de la journée.
+# soleil_leve(6, 18, 10) # doit retourner True
+# soleil_leve(15, 8, 12)  # doit retourner False
+# soleil_leve(12, 12, 10) # doit retourner False
+# soleil_leve(0, 0, 22) # doit retourner True
 
-   
+def soleil_leve(heure_lever, heure_coucher, heure_actuelle):
+    # Check if sunrise and sunset times are the same
+    if heure_lever == heure_coucher:
+        # Check if both times are 12 or 0
+        if heure_lever in [12, 0]:
+            return False
+    # Check if sunrise is before sunset
+    elif heure_lever < heure_coucher:
+        # Check if current time is between sunrise and sunset
+        if heure_lever <= heure_actuelle < heure_coucher:
+            return True
+    # Sunrise is after sunset
+    else:
+        # Check if current time is after sunrise or before sunset
+        if heure_lever <= heure_actuelle or heure_actuelle < heure_coucher:
+            return True
+    return False
+
+soleil_leve(6, 18, 10) # doit retourner True
+soleil_leve(15, 8, 12)  # doit retourner False
+soleil_leve(12, 12, 10) # doit retourner False
+soleil_leve(0, 0, 22) # doit retourner True
