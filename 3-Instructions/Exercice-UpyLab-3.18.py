@@ -12,10 +12,10 @@
 
 n = int(input())
 
-for i in range(1, n + 1):
-    espaces = " " * (n - i)
-    milieu = [str(j % 10) for j in range(i, i + i)]
-    gauche = milieu[:len(milieu) // 2 - 1]
-    droite = milieu[len(milieu) // 2:]
-    ligne = espaces + "".join(gauche) + "".join(droite)
-    print(ligne)
+for i in range(1, n+1):
+    print(" "*(n-i), end="")
+    for j in range(i % 10, 0, -1):
+        print(j, end="")
+    for j in range(1, i % 10 + 1):
+        print(j, end="")
+    print()
