@@ -6,4 +6,15 @@
 # Après l’entrée de cette valeur sentinelle -1, le programme affiche la valeur de la moyenne arithmétique calculée.
 
 # On suppose que la suite des tailles contient toujours au moins un élément avant la valeur sentinelle -1, et que toutes ces valeurs sont positives ou nulles.
+total = 0
+count = 0
 
+while True:
+    size = int(input()) # Read the size of a company 
+    if size == -1:
+        break
+    total += size
+    count += 1
+
+average = total / count
+print(average)
