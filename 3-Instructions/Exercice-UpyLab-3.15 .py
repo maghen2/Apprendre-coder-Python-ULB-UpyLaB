@@ -15,65 +15,18 @@
 # "Cible atteinte" si l’écureuil a trouvé la noisette,
 # "Pas trouvée" si l’écureuil est revenu en position 0 sans trouver la noisette.
 # Vous pouvez supposer que les valeurs lues sont bien des entiers qui respectent les consignes.
-# Exemple 1
-# Avec les données lues suivantes :
-# 9
-# 7
-# le résultat à imprimer vaudra :
-# 9
-# 18
-# 27
-# 36
-# 45
-# 54
-# 63
-# 72
-# 81
-# 90
-# 99
-# 8
-# 17
-# 26
-# 35
-# 44
-# 53
-# 62
-# 71
-# 80
-# 89
-# 98
-# Cible atteinte
-# Exemple 2
-# Avec les données lues suivantes :
-# 8
-# 7
-# le résultat à imprimer vaudra :
-# 8
-# 16
-# 24
-# 32
-# 40
-# 48
-# 56
-# 64
-# 72
-# 80
-# 88
-# 96
-# 4
-# 12
-# 20
-# 28
-# 36
-# 44
-# 52
-# 60
-# 68
-# 76
-# 84
-# 92
-# 0
-# Pas trouvée
-# Consignes
-# Attention, nous rappelons que votre code sera évalué en fonction de ce qu’il affiche, donc veillez à n’imprimer que le résultat attendu.
-# En particulier, il ne faut rien écrire à l’intérieur des appels à input (int(input()) et non int(input("Entrer un nombre : ")) par exemple), et à afficher précisément le texte demandé ; par exemple : print("Cible atteinte") et non print("La cible a été atteinte") par exemple.
+
+saut = int(input())
+position_cible = int(input())
+position_courante = 0
+
+while True :
+    position_courante = (position_courante + saut) % 100
+    print(position_courante)
+    if position_courante == 0 : # if initialiale position again break experience
+        break
+
+if position_courante == position_cible:
+    print("Cible atteinte")
+else:
+    print("Pas trouvée")
