@@ -20,12 +20,12 @@ import random
 secret_number = random.randint(0, 100)
 
 # Initialize the number of attempts
-attempts = 0
+attempts = 1
 
 # Loop until the player guesses the secret number or reaches the maximum number of attempts
-while attempts < 6:
-    # Prompt the player to enter a number
-    guess = int(input("Enter a number: "))
+while attempts <= 6:
+    
+    guess = int(input()) # Read the player's guess
 
     # Check if the guess is too high
     if guess > secret_number:
@@ -35,13 +35,13 @@ while attempts < 6:
         print("Trop petit")
     # The guess is correct
     else:
-        print("Gagné en", attempts + 1, "essai(s) !")
+        print("Gagné en", attempts, "essai(s) !")
         break
-
-    # Increment the number of attempts
-    attempts += 1
+    
+    attempts += 1 # Increment the number of attempts
 
 # The player didn't guess the secret number within the maximum number of attempts
-if attempts == 6:
-    print("Perdu ! Le secret était", secret_number)
-    
+if attempts > 6 :
+    print("Perdu ! Le secret était", secret_number)  
+elif guess == secret_number 
+    print("Gagné en", attempts, "essai(s) !")
