@@ -22,8 +22,9 @@ position_courante = 0
 
 while True :
     position_courante = (position_courante + saut) % 100
-    print(position_courante)
-    if position_courante == 0 : # if initialiale position again break experience
+    if position_courante != position_cible :
+        print(position_courante)
+    if position_courante == position_cible or position_courante == 0 : # attempt end of experience
         break
 
 if position_courante == position_cible:
