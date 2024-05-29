@@ -27,4 +27,5 @@
 # Enfin, si l'heure du lever est la même que l'heure du coucher :
 #      - soit toutes deux valent 12, cela signifie que le soleil ne se lève pas de la journée,
 #      - soit toutes les deux valent 0, cela signifie que le soleil ne se couche pas de la journée.
-     
+
+   
