@@ -1,3 +1,5 @@
+import random
+
 # Exercice UpyLab 4.10 - Parcours : bleu rouge
 # Auteur Thierry Massart (Université Libre de Bruxelles)
 # Pierre-feuille-ciseaux (voir Pierre-papier-ciseaux sur Wikipedia) est un jeu effectué avec les mains et opposant un ou plusieurs joueurs.
@@ -56,3 +58,49 @@
 # Votre code fera donc un appel à random.seed suivi de cinq appels à random.randint, un par manche. Aucun autre appel à une fonction de random ne pourra être effectué.
 
 # Vous pouvez bien sûr utiliser la fonction bat de l’exercice 4.9 mais nous vous conseillons vivement de définir aussi d’autres fonctions (par exemple , une fonction qui réalise une manche et imprime la ligne de message) pour structurer votre code.
+
+def bat(joueur_1, joueur_2):
+    return True if(joueur_1 == 0 and joueur_2 == 2) or (joueur_1 == 1 and joueur_2 == 0) or (joueur_1 == 2 and joueur_2 == 1) else False
+
+    PIERRE = 0
+    FEUILLE = 1
+    CISEAUX = 2
+
+    def bat(joueur_1, joueur_2):
+        return True if (joueur_1 == 0 and joueur_2 == 2) or (joueur_1 == 1 and joueur_2 == 0) or (joueur_1 == 2 and joueur_2 == 1) else False
+
+    def jouer_manche():
+        coup_ordinateur = random.randint(0, 2)
+        coup_joueur = int(input("Entrez votre coup (0 pour Pierre, 1 pour Feuille, 2 pour Ciseaux) : "))
+        
+        if bat(coup_ordinateur, coup_joueur):
+            resultat = "bat"
+        elif bat(coup_joueur, coup_ordinateur):
+            resultat = "est battu par"
+        else:
+            resultat = "annule"
+        
+        print(f"Coup de l'ordinateur : {coup_ordinateur}")
+        print(f"Coup du joueur : {coup_joueur}")
+        print(f"Coup de l'ordinateur {resultat} coup du joueur")
+        
+        return resultat
+
+    random.seed(int(input("Entrez une valeur entière pour initialiser la génération aléatoire : ")))
+
+    points = 0
+
+    for _ in range(5):
+        resultat_manche = jouer_manche()
+        
+        if resultat_manche == "bat":
+            points += 1
+        elif resultat_manche == "est battu par":
+            points -= 1
+
+    if points > 0:
+        print("Gagné")
+    elif points < 0:
+        print("Perdu")
+    else:
+        print("Nul")
