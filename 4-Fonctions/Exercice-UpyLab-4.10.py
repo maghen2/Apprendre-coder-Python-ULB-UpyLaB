@@ -59,48 +59,49 @@ import random
 
 # Vous pouvez bien sûr utiliser la fonction bat de l’exercice 4.9 mais nous vous conseillons vivement de définir aussi d’autres fonctions (par exemple , une fonction qui réalise une manche et imprime la ligne de message) pour structurer votre code.
 
+PIERRE = 0
+FEUILLE = 1
+CISEAUX = 2
+
+
+s = 65 # int(input())
+random.seed(s)
+points = 0 
+
+# Écrire une fonction bat(joueur_1, joueur_2) où joueur_1 et joueur_2 ont chacun une valeur entière 0, 1 ou 2, qui encode ce que le joueur a fait comme coup (0 : PIERRE, 1 : FEUILLE, 2 : CISEAUX) qui renvoie un résultat booléen :
+# vrai si joueur_1 bat le joueur_2 :
+# faux si joueur_2 bat joueur_1 ou fait match nul contre lui.
 def bat(joueur_1, joueur_2):
-    return True if(joueur_1 == 0 and joueur_2 == 2) or (joueur_1 == 1 and joueur_2 == 0) or (joueur_1 == 2 and joueur_2 == 1) else False
+    return True if (joueur_1 == 0 and joueur_2 == 2) or (joueur_1 == 1 and joueur_2 == 0) or (joueur_1 == 2 and joueur_2 == 1) else False
 
-    PIERRE = 0
-    FEUILLE = 1
-    CISEAUX = 2
+# fonction qui determine l'issue de la manche en se bassant sur bat(joueur_1, joueur_2)
+def jouer_manche():
+    coup_nom = ["Pierre", "Feuille", "Ciseaux"]
+    coup_ordinateur = random.randint(0, 2)
+    coup_joueur = int(input())
+    global points
 
-    def bat(joueur_1, joueur_2):
-        return True if (joueur_1 == 0 and joueur_2 == 2) or (joueur_1 == 1 and joueur_2 == 0) or (joueur_1 == 2 and joueur_2 == 1) else False
-
-    def jouer_manche():
-        coup_ordinateur = random.randint(0, 2)
-        coup_joueur = int(input("Entrez votre coup (0 pour Pierre, 1 pour Feuille, 2 pour Ciseaux) : "))
-        
-        if bat(coup_ordinateur, coup_joueur):
-            resultat = "bat"
-        elif bat(coup_joueur, coup_ordinateur):
-            resultat = "est battu par"
-        else:
-            resultat = "annule"
-        
-        print(f"Coup de l'ordinateur : {coup_ordinateur}")
-        print(f"Coup du joueur : {coup_joueur}")
-        print(f"Coup de l'ordinateur {resultat} coup du joueur")
-        
-        return resultat
-
-    random.seed(int(input("Entrez une valeur entière pour initialiser la génération aléatoire : ")))
-
-    points = 0
-
-    for _ in range(5):
-        resultat_manche = jouer_manche()
-        
-        if resultat_manche == "bat":
-            points += 1
-        elif resultat_manche == "est battu par":
-            points -= 1
-
-    if points > 0:
-        print("Gagné")
-    elif points < 0:
-        print("Perdu")
+    resultat = coup_nom[coup_ordinateur]+" "
+    if bat(coup_ordinateur, coup_joueur):
+        resultat += "bat"
+        points -= 1
+    elif bat(coup_joueur, coup_ordinateur):
+        resultat += "est battu par"
+        points += 1
     else:
-        print("Nul")
+        resultat += "annule"
+    resultat += " "+coup_nom[coup_joueur]
+    return resultat, points
+
+# Écrire un programme qui réalise 5 manches du jeu Pierre-feuille-ciseaux entre l’ordinateur et le joueur. 
+for _ in range(5):
+    resultat_manche, points = jouer_manche()
+    print(f"{resultat_manche} : {points}")
+
+# À la fin des cinq manches, votre programme affichera : Perdu, Nul ou Gagné suivant que le compteur est négatif, nul ou strictement positif.
+if points > 0:
+    print("Gagné")
+elif points < 0:
+    print("Perdu")
+else:
+    print("Nul")
