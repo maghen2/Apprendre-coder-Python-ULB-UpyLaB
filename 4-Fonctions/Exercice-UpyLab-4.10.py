@@ -64,7 +64,7 @@ FEUILLE = 1
 CISEAUX = 2
 
 
-s = 65 # int(input())
+s = int(input())
 random.seed(s)
 points = 0 
 
