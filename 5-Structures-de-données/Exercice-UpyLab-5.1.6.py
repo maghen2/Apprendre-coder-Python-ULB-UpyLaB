@@ -17,3 +17,5 @@ def signature(identite):
     nom = identite[1]
     prenom = identite[0]
     return nom + " " + prenom
+
+print(signature(('de Saint-Exupéry', 'Antoine')))
