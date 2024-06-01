@@ -25,3 +25,10 @@
 # La seule différence, c’est que dans le deuxième cas, il faut avoir défini la fonction is_int au préalable (mais l’avantage, c’est qu’on pourrait la réutiliser dans la suite du code, contrairement à la fonction lambda).
 
 # Notez qu’UpyLaB utilisera ces fonctions lambda dans ses tests.
+
+def my_filter(lst, f):
+    return [x for x in lst if f(x)]
+
+print(my_filter(['hello', 666, 42, 'Thierry', 1.5], lambda x : isinstance(x, int)))
+print(my_filter([-2, 0, 4, -5, -6], lambda x : x < 0))
+print(my_filter([1, 2, 3, 4, 5], lambda x : x % 2 == 0))
