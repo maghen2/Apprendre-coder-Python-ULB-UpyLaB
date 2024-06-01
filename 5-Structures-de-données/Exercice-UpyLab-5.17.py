@@ -9,3 +9,19 @@
 # Par exemple, la liste [(1, 'He'), (2, 'l'), (1,'o')] décrit la séquence "Hello".
 
 # Écrire une fonction decompresse qui reçoit une telle liste en paramètre et renvoie la séquence t sous forme d’une nouvelle liste.
+
+# Exemple
+# L’appel suivant de la fonction :
+
+# decompresse([(4, 1), (0, 2), (2, 'test'), (3, 3), (1, 'bonjour')])
+# doit retourner :
+
+# [1, 1, 1, 1, 'test', 'test', 3, 3, 3, 'bonjour']
+
+def decompresse(lst):
+    result = []
+    for (count, element) in lst:
+        result.extend([element] * count)
+    return result
+
+print(decompresse([(4, 1), (0, 2), (2, 'test'), (3, 3), (1, 'bonjour')]))
