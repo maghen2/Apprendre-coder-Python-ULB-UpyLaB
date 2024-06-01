@@ -6,3 +6,5 @@
 # Écrire une fonction anagrammes(v, w) qui renvoie la valeur booléenne True si les mots v et w sont des anagrammes.
 
 # La fonction retourne la valeur booléenne False dans le cas contraire.
+def anagrammes(v, w):
+    return sorted(v) == sorted(w) # on compare les deux mots triés
