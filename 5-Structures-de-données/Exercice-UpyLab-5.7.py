@@ -11,7 +11,9 @@
 
 def plus_grand_bord(w):
     n = len(w)
-    for i in range(n//2):
+    for i in range(n//2+1, 0, -1):
         if w[:i] == w[n-i:]: # comparaison à partir du milieu vers les expremités du mot afin de retourner le plus grand bord possible
             return w[:i]
-    return ""
+    return "" # si aucun bord n'est trouvé on retourne une chaine vide
+
+print(plus_grand_bord('abdabda'))
