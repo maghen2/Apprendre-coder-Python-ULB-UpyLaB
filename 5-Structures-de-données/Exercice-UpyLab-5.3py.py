@@ -6,7 +6,7 @@
 
 def duree(debut, fin):
     periode = (fin[0] - debut[0], fin[1] - debut[1])
-    if periode[0] < 0 :
+    if periode[0] < 0 or (periode[0]==0 and periode[1]<=0):
         periode = (periode[0] + 24, periode[1])
     if periode[1] < 0 :
         periode = (periode[0] - 1, periode[1] + 60)
