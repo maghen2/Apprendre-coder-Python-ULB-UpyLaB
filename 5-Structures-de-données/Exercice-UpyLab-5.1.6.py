@@ -13,3 +13,7 @@
 # Écrire une fonction signature qui reçoit un paramètre identite . Ce paramètre est un couple (tuple de deux composantes) dont la première composante représente un nom et la seconde un prénom.
 
 # Cette fonction doit retourner la chaîne de caractères formée du prénom suivi du nom, séparés par une espace.
+def signature(identite):
+    nom = identite[1]
+    prenom = identite[0]
+    return nom + " " + prenom
