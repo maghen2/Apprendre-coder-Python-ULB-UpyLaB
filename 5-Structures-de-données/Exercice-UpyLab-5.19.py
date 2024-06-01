@@ -10,4 +10,4 @@ def acrostiche(file_name):
             acrostic += line[0] #on recupère et cumule le premier caractère de chaque ligne
     return acrostic
 
-print(acrostiche('Apollinaire.txt'))
+print(acrostiche('5-Structures-de-données/Apollinaire.txt'))
