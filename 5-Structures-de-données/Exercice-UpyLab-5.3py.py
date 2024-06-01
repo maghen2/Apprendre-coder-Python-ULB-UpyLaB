@@ -5,9 +5,13 @@
 # Cette fonction doit calculer la durée qui s’est écoulée entre ces deux instants. Le résultat sera donné sous la forme d’un tuple (heure, minutes).
 
 def duree(debut, fin):
-    duree[0] = fin[0] - debut[0] 
-    duree[1] = fin[1] - debut[1] 
-    if duree[1] < 0 :
-        duree[1] +=60
-        duree[0] -=1
-    return duree
+    periode = (fin[0] - debut[0], fin[1] - debut[1])
+    if periode[0] < 0 :
+        periode = (periode[0] + 24, periode[1])
+    if periode[1] < 0 :
+        periode = (periode[0] - 1, periode[1] + 60)
+    
+    return periode
+
+print(duree((6, 0), (5, 15)))
+print(duree((14, 39), (18, 45)))
