@@ -7,3 +7,13 @@
 # Écrire une fonction distance_mots(mot_1, mot_2) qui retourne la distance entre deux mots.
 
 # Vous pouvez supposer que les deux mots sont de même longueur, et sont écrits sans accents.
+def distance_mots(mot_1, mot_2):
+    distance = 0
+    for i in range(len(mot_1)):
+        if mot_1[i] != mot_2[i]:
+            distance += 1
+    return distance
+
+print(distance_mots("lire", "bise"))
+print(distance_mots("Python", "Python"))
+print(distance_mots("merci", "adieu"))
