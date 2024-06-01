@@ -6,19 +6,23 @@
 
 def distance_mots(mot_1, mot_2):
     distance = 0
-    for i in range(len(mot_1)):
+    taille = len(mot_1)
+    if taille > len(mot_2):
+        taille = len(mot_2)
+
+    for i in range(taille):
         if mot_1[i] != mot_2[i]:
             distance += 1
     return distance
 
 def correcteur(mot, liste_mots): # On part du postulat que le premier mot est le mot correct
-    distance = distance_mots(mot, liste_mots[0])
-    mot_correct = liste_mots[0]
-
+ 
     for i in range(1, len(liste_mots)): # Ensuite on compare la distance entre le premier mot et les autres mots de la liste
-        if distance_mots(mot, liste_mots[i]) <  distance:
-            mot_correct = liste_mots[i]
+        if (len(mot)-len(liste_mots[i])) in range(-1, 2):
+            if distance_mots(mot, liste_mots[i]) <= 1:
+                mot_correct = liste_mots[i]
 
     return mot_correct
 
 print(correcteur("chat", ["chien", "chat", "train", "voiture", "bonjour", "merci"]))
+print(correcteur("bonvour", ["chien", "chat", "train", "voiture", "bonjour", "merci"]))
