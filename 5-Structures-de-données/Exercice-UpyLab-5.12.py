@@ -15,6 +15,7 @@ def my_insert(lst, n):
     new_lst.sort()
     
     return new_lst
+
 print(my_insert([1, 3, 5], 4))
 print(my_insert([2, 3, 5], 1))
 print(my_insert([2, 3, 5], 0.5))
