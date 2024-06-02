@@ -21,3 +21,11 @@
 # le fichier dont le nom est nouvelle_histoire_1.txt doit contenir le texte :
 
 # Si Paul est le fils de Tom, et si Tom est le frère de Mathilde, qui est Paul pour Mathilde ?
+def nouveaux_heros(file_name1, file_name2):
+    with open(file_name1, 'r') as file1:
+        with open(file_name2, 'w') as file2:
+            for line in file1:
+                line = line.replace("Pierre", "Paul")
+                line = line.replace("Paul", "Tom")
+                line = line.replace("Jacqueline", "Mathilde")
+                file2.write(line)   
