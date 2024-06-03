@@ -1,5 +1,5 @@
 # Apprendre à coder avec Python - Université Libre de Bruxelles (ULB) UpyLaB 
-## [UpyLaB](https://upylab2.ulb.ac.be/) _est une plateforme d'apprentissage en ligne permettant l'apprentissage par la pratique du langage de programmation Python_
+## [UpyLaB](https://upylab2.ulb.ac.be/) _est une plateforme d'apprentissage en ligne de l'Université Libre De Bruxelles (ULB) permettant l'apprentissage par la pratique du langage de programmation Python_
 
 [![N|Solid](https://www.ictjob.be/wp-content/uploads/2021/04/LOGO.jpg)](https://upylab2.ulb.ac.be/)
 
