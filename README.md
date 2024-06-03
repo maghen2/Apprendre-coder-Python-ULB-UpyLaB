@@ -25,6 +25,15 @@ L’évaluation sur 300 points comporte trois classes d'exercices notés :
 - des exercices à réaliser de façon autonome validés par notre exerciseur UpyLaB (150 points)
 - un projet sous forme de programme individuel évalué par les pairs et auto-évalué (48 points).
 
+## DESCRIPTION DU COURS
+1. Introduction à UpyLaB
+2. Arithmétique et manipulation des textes
+3. Instructions
+4. Fonctions
+5. Structures de données
+6. Ensembles et dictionnaires
+7. Exercices de synthèse
+
 ## Plan de cours
 ### Bloc 1 - ouvert à la semaine 1
 #### Module 1 : Bienvenue dans l'environnement Python 3
