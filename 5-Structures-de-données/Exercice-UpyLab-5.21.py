@@ -1,3 +1,4 @@
+import re
 # Exercice UpyLab 5.21 - Parcours : bleu rouge
 # Auteurs : Sébastien Hoarau - Thierry Massart - Isabelle Poirier
 # Écrire une fonction liste_des_mots qui reçoit en paramètre le nom d’un fichier texte, que la fonction doit ouvrir, et qui renvoie la liste des mots contenus dans le fichier.
@@ -23,7 +24,7 @@ def liste_des_mots(nom_fichier):
     mots = []
     with open(nom_fichier, 'r', encoding='utf-8') as fichier:
         for ligne in fichier:
-            mots += ligne.split("\n \t \r \f - ' \" ? ! : ; . , * = ( ) 1 2 3 4 5 6 7 8 9 0") # conversion de ligne string en mots
+            mots += re.split(r"\s+|[-'\"?!:;,.*=()1234567890]", ligne) # conversion de ligne string en mots
 
     mots = [mot.lower() for mot in mots] # conversion de mots en minuscules
     mots = list(set(mots)) # suppression des doublons
