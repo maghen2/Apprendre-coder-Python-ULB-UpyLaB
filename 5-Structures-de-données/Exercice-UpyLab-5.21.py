@@ -11,7 +11,7 @@
 
 # Dans le fichier source, les mots peuvent être séparés par des caractères blancs habituels (caractère espace, tabulation, passage à la ligne), ou par n’importe quel caractère parmi les suivants :
 
-# - ' " ? ! : ; . , * = ( ) 1 2 3 4 5 6 7 8 9 0
+# \n \t \r \f - ' " ? ! : ; . , * = ( ) 1 2 3 4 5 6 7 8 9 0
 
 # Certains des fichiers utilisés par UpyLaB pour tester la fonction sont accessibles aux adresses suivantes :
 
@@ -23,8 +23,11 @@ def liste_des_mots(nom_fichier):
     mots = []
     with open(nom_fichier, 'r', encoding='utf-8') as fichier:
         for ligne in fichier:
-            mots += ligne.split()
-    
+            mots += ligne.split("\n \t \r \f - ' \" ? ! : ; . , * = ( ) 1 2 3 4 5 6 7 8 9 0") # conversion de ligne string en mots
+
+    mots = [mot.lower() for mot in mots] # conversion de mots en minuscules
+    mots = list(set(mots)) # suppression des doublons
+    mots.sort() # tri des mots
     
     return mots
 print(liste_des_mots("Zola.txt"))
