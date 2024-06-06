@@ -26,3 +26,15 @@
 
 # Vous pourriez être tenté d’utiliser la méthode split. Ce n’est peut-être pas une très bonne idée, car la liste des séparateurs est ici très longue. Par exemple, le fichier pourrait contenir la chaîne
 
+def wc(nomFichier):
+    with open(nomFichier, 'r') as file:
+        contenu = file.read()
+        nb_caracteres = len(contenu)
+        nb_mots = len(contenu.split())
+        nb_lignes = len(contenu.split('\n'))
+    return (nb_caracteres, nb_mots, nb_lignes)
+
+print(wc("wc1.txt"))
+print(wc("Zola.txt"))
+print(wc("le-petit-prince.txt"))
+
