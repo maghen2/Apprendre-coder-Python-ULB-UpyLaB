@@ -19,3 +19,7 @@
 
 def init_mat(m, n):
     return [[0] * n for _ in range(m)]
+
+print(init_mat(2, 3))
+print(init_mat(0, 0))
+
