@@ -26,3 +26,15 @@
 
 # False
 
+def antisymetrique(M):
+    n = len(M)
+    for i in range(n):
+        for j in range(n):
+            if M[i][j] != -M[j][i]:
+                return False
+    return True
+
+
+print(antisymetrique([[0, 1, 1], [-1, 0, 1], [-1, -1, 0]]))
+print(antisymetrique([[0, 1], [1, 0]])) 
+print(antisymetrique([[1, -2], [2, 1]]))
