@@ -13,8 +13,14 @@
 # 1 2
 # 3 4
 # 5 6
+
+#print_mat([['H', 'E', 'L', 'L', 'O'], ['W', 'O', 'R', 'L', 'D']])
+# doit afficher :
+# H E L L O
+# W O R L D
 def print_mat(M):
     for row in M:
         print(' '.join(map(str, row)))
 
 print_mat([[1, 2], [3, 4], [5, 6]])
+print_mat([['H', 'E', 'L', 'L', 'O'], ['W', 'O', 'R', 'L', 'D']])
