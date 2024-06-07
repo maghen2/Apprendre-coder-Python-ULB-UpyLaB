@@ -20,3 +20,16 @@
 # doit retourner :
 
 # 13.0
+def calcul_prix(produits, catalogue):
+    total = 0
+    for produit, quantite in produits.items():
+        if produit in catalogue:
+            prix = catalogue[produit]
+            total += prix * quantite
+    return total
+
+
+produits = {"brocoli":2, "mouchoirs":5, "bouteilles d'eau":6}
+catalogue = {"brocoli":1.50, "bouteilles d'eau":1, "bière":2, "savon":2.50, "mouchoirs":0.80}
+result = calcul_prix(produits, catalogue)
+print(result)
