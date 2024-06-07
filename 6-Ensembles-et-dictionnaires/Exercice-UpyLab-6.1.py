@@ -37,3 +37,4 @@ print(inventaire({"lit" : "Antoine", "bibliothèque" : "Sébastien", "chaise" : 
             "livre 'Le vieil homme et la mer'" : "Ernest", "sac de bonbons" : "Thierry",
             "smartphone" : "Ted", "table" : "Sophie"},
            ["sac de bonbons", "table", "chaise", "lit", "livre 'Le vieil homme et la mer'"]))
+
