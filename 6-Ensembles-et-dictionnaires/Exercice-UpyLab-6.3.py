@@ -15,3 +15,13 @@
 # doit retourner :
 
 # ('Candidat 6', 'Candidat 5', 'Candidat 2')
+def top_3_candidats(moyennes):
+    sorted_candidats = sorted(moyennes.items(), key=lambda x: x[1], reverse=True)
+    top_3 = [candidat[0] for candidat in sorted_candidats[:3]]
+    return tuple(top_3)
+
+moyennes = {'Candidat 7': 2, 'Candidat 2': 38, 'Candidat 6': 85,
+            'Candidat 1': 8, 'Candidat 3': 17, 'Candidat 5': 83,
+            'Candidat 4': 33}
+result = top_3_candidats(moyennes)
+print(result)
