@@ -30,4 +30,5 @@ def compteur_lettres(texte):
             compteur[lettre] = 0
     return compteur
 
+# Test
 compteur_lettres("Dessine-moi un mouton !")
