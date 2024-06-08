@@ -1,4 +1,4 @@
-# Exercice UpyLab 6.11 - Parcours : vert bleu rouge
+# Exercice UpyLab 7.1 - Parcours : vert bleu rouge
 # Auteurs : Sébastien Hoarau - Thierry Massart - Isabelle Poirier
 # Le Petit Prince a peur des baobabs qui, en poussant, pourraient abîmer sa minuscule planète. Par contre, il adore les arbres à fleurs que Monsieur Jardinier lui montre.
 
