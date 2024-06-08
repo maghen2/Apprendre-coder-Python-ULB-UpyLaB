@@ -22,3 +22,13 @@
 # AIDE EN CAS DE BESOIN
 # Conseils
 # N’oubliez pas d’ôter le caractère de fin de ligne lorsque vous voulez comparer les deux chaînes de caractères.
+def belongs_to_file(word, filename):
+    with open(filename, 'r') as file:
+        for line in file:
+            if line.strip() == word:
+                return True
+    return False
+
+# Test
+print(belongs_to_file("renard", "words.txt")) # False
+
