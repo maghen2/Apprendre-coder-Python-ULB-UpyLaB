@@ -66,3 +66,14 @@
 # Vous pourrez supposer que les arguments passés à la fonction seront valides.
 
 # Il n’est pas demandé de vérifier si la grille contient un alignement gagnant.
+
+def placer_pion(couleur, colonne, grille):
+    if colonne < 0 or colonne >= len(grille[0]):
+        return False, grille
+    
+    for i in range(len(grille)-1, -1, -1):
+        if grille[i][colonne] == 'V':
+            grille[i][colonne] = couleur
+            return True, grille
+    
+    return False, grille
