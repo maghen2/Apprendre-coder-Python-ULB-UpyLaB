@@ -14,3 +14,20 @@
 #  'p': 0, 'q': 0, 'r': 0, 's': 2, 't': 1,
 #  'u': 2, 'v': 0, 'w': 0, 'x': 0, 'y': 0,
 #  'z': 0}
+
+def compteur_lettres(texte):
+    compteur = {}
+    for lettre in texte:
+        if lettre.isalpha():
+            lettre = lettre.lower()
+            if lettre in compteur:
+                compteur[lettre] += 1
+            else:
+                compteur[lettre] = 1
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    for lettre in alphabet:
+        if lettre not in compteur:
+            compteur[lettre] = 0
+    return compteur
+
+compteur_lettres("Dessine-moi un mouton !")
