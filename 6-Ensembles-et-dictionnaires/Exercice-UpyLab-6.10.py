@@ -14,5 +14,5 @@ def valeurs(dico):
     return [dico[key] for key in sorted(dico.keys())]
 
 # Test
-print(valeurs({'three': 'trois', 'two': 'deux', 'one': 'un'})) # ['un', 'trois', 'deux']
+print(valeurs({'three': 'trois', 'two': 'deux', 'one': 'un'})) 
  
