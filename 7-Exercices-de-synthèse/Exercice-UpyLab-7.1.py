@@ -1,3 +1,4 @@
+import math
 # Exercice UpyLab 7.1 - Parcours : vert bleu rouge
 # Auteurs : Sébastien Hoarau - Thierry Massart - Isabelle Poirier
 # Le Petit Prince a peur des baobabs qui, en poussant, pourraient abîmer sa minuscule planète. Par contre, il adore les arbres à fleurs que Monsieur Jardinier lui montre.
@@ -31,4 +32,17 @@
 # Consignes
 # Dans cet exercice, il vous est demandé d’écrire une fonction, puis un programme appelant cette fonction. Notez qu’UpyLaB testera ces deux points, en exécutant le programme entier mais aussi en appelant directement la fonction avec les arguments de son choix.
 # Nous rappelons que l'aire d'une sphère, solide auquel est assimilée une planète pour les besoins de l'exercice, s'obtient par le calcul π * d2 où d désigne le diamètre de la sphère.
+def bonne_planete(diametre):
+    surface = math.pi * (diametre ** 2)
+    if surface >= 50*1000:
+        return True
+    else:
+        return False
+
+diametre = float(input())
+if bonne_planete(diametre):
+    print("Bonne planète")
+else:
+    print("Trop petite")
+
 
