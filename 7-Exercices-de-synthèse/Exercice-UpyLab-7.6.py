@@ -80,3 +80,34 @@
 # Vérifiez que vos fonctions répondent bien à toutes les contraintes de l’énoncé.
 
 # Veillez à ne pas faire trop de passages sur le contenu du fichier, qui peut être de taille conséquente. Sinon, UpyLaB pourrait stopper l’exécution de votre code qu’il trouve trop longue.
+def file_histogram(fileName):
+    histogram = {}
+    with open(fileName, 'r') as file:
+        text = file.read()
+        for char in text:
+            if char in histogram:
+                histogram[char] += 1
+            else:
+                histogram[char] = 1
+    return histogram
+
+def words_by_length(fileName):
+    words_dict = {}
+    with open(fileName, 'r') as file:
+        text = file.read()
+        words = text.split()
+        for word in words:
+            word = word.lower()
+            if word.isalpha():
+                length = len(word)
+                if length in words_dict:
+                    if word not in words_dict[length]:
+                        words_dict[length].append(word)
+                else:
+                    words_dict[length] = [word]
+        for length in words_dict:
+            words_dict[length].sort()
+    return words_dict
+
+# Test
+print(file_histogram('Zola.txt'))
