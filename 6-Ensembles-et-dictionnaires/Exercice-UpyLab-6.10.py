@@ -10,5 +10,9 @@
 
 # ['un', 'trois', 'deux']
 # En effet, les clés correspondantes sont “one” < “three” < “two” (ordre UTF-8).
+def valeurs(dico):
+    return [dico[key] for key in sorted(dico.keys())]
 
+# Test
+print(valeurs({'three': 'trois', 'two': 'deux', 'one': 'un'})) # ['un', 'trois', 'deux']
  
