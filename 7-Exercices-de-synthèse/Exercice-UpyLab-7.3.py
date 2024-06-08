@@ -58,6 +58,8 @@
 def next_line(line):
     result = []
     count = 1
+    if len(line) == 0:
+        return [1]
     for i in range(len(line)):
         if i < len(line) - 1 and line[i] == line[i+1]:
             count += 1
