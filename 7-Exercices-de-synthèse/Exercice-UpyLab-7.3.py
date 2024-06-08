@@ -55,3 +55,20 @@
 
 # N’hésitez pas à tester votre fonction sur les cas « limites » comme la liste vide, [], ou la liste singleton [1], en vous référant aux exemples donnés.
 
+def next_line(line):
+    result = []
+    count = 1
+    for i in range(len(line)):
+        if i < len(line) - 1 and line[i] == line[i+1]:
+            count += 1
+        else:
+            result.append(count)
+            result.append(line[i])
+            count = 1
+    return result
+
+# Test
+print(next_line([1, 2, 1, 1])) # [1, 1, 1, 2, 2, 1]
+print(next_line([1])) # [1, 1]
+print(next_line([])) # [1]
+print(next_line([1, 1, 1, 1, 1, 1])) # [6, 1]
