@@ -47,11 +47,27 @@ def check_cols(grid):
             return False
     return True
 
-    def check_regions(grid):
-        for i in range(0, len(grid), 3):
-            for j in range(0, len(grid[0]), 3):
-                region = [grid[row][col] for row in range(i, i+3) for col in range(j, j+3)]
-                if len(set(region)) != len(region):
-                    return False
+def check_regions(grid):
+    for i in range(0, len(grid), 3):
+        for j in range(0, len(grid[0]), 3):
+            region = [grid[row][col] for row in range(i, i+3) for col in range(j, j+3)]
+            if len(set(region)) != len(region):
+                return False
+    return True
+
+def check_sudoku(grid):
+    if check_rows(grid) and check_cols(grid) and check_regions(grid):
         return True
+    else:
+        return False
     
+# Test
+print(check_sudoku([[9, 6, 3, 1, 7, 4, 2, 5, 8],
+            [1, 7, 8, 3, 2, 5, 6, 4, 9],
+            [2, 5, 4, 6, 8, 9, 7, 3, 1],
+            [8, 2, 1, 4, 3, 7, 5, 9, 6],
+            [4, 9, 6, 8, 5, 2, 3, 1, 7],
+            [7, 3, 5, 9, 6, 1, 8, 2, 4],
+            [5, 8, 9, 7, 1, 3, 4, 6, 2],
+            [3, 1, 7, 2, 4, 6, 9, 8, 5],
+            [6, 4, 2, 5, 9, 8, 1, 7, 3]])) 
