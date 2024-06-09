@@ -1,3 +1,5 @@
+import random
+
 """
 Exercice UpyLab 7.9 - Parcours : rouge
 Auteurs : Sébastien Hoarau - Thierry Massart - Isabelle Poirier
@@ -81,4 +83,30 @@ Pour la fonction play_game, si les valeurs saisies par le joueur ne sont pas du 
 
 Notez enfin que les deux fonctions sont séparées et indépendantes l’une de l’autre.
 """
+def create_map(size, trapsNbr):
+    my_map = {}
+    my_map[(random.randint(1, size), random.randint(1, size))] = 1  # treasure location
+    for _ in range(trapsNbr):
+        while True:
+            pos = (random.randint(1, size), random.randint(1, size))
+            if pos not in my_map:
+                my_map[pos] = -1  # trap location
+                break
+    return my_map
 
+def play_game(map_size, treasure_map):
+    while True:
+        x, y = input().split()
+        try:
+            x = int(x)
+            y = int(y)
+            if 1 <= x <= map_size and 1 <= y <= map_size:
+                if (x, y) in treasure_map:
+                    return True
+                elif treasure_map[(x, y)] == -1:
+                    return False
+        except ValueError:
+            pass
+
+#test
+print(create_map(4, 5))
