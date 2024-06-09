@@ -110,3 +110,4 @@ def play_game(map_size, treasure_map):
 
 #test
 print(create_map(4, 5))
+play_game(5, {(3, 4): -1, (4, 1): 1, (2, 3): -1, (1, 5): -1})
