@@ -55,3 +55,53 @@
 # (False, None)
 # Consignes
 # Dans la grille passée en paramètre, les cases vides sont représentées par l’entier 0.
+
+def check_rows(grid):
+    for row in grid:
+        if len(set(row)) != len(row):
+            return False
+    return True
+
+def check_cols(grid):
+    for col in range(len(grid[0])):
+        column = [grid[row][col] for row in range(len(grid))]
+        if len(set(column)) != len(column):
+            return False
+    return True
+
+def check_regions(grid):
+    for i in range(0, len(grid), 3):
+        for j in range(0, len(grid[0]), 3):
+            region = [grid[row][col] for row in range(i, i+3) for col in range(j, j+3)]
+            if len(set(region)) != len(region):
+                return False
+    return True
+
+def check_sudoku(grid):
+    if check_rows(grid) and check_cols(grid) and check_regions(grid):
+        return True
+    else:
+        return False
+    
+def naked_single(grid):
+    if not check_sudoku(grid):
+        return False, None
+    
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            if grid[i][j] == 0:
+                candidates = set(range(1, 10))
+                for num in grid[i]:
+                    candidates.discard(num)
+                for row in grid:
+                    candidates.discard(row[j])
+                region_i = i // 3 * 3
+                region_j = j // 3 * 3
+                for row in range(region_i, region_i + 3):
+                    for col in range(region_j, region_j + 3):
+                        candidates.discard(grid[row][col])
+                if len(candidates) == 1:
+                    grid[i][j] = candidates.pop()
+                else:
+                    return True, None
+    return True, grid
