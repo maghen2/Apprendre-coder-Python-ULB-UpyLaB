@@ -17,3 +17,12 @@
 # retourne :
 
 # True
+
+def check_regions(grid):
+    for i in range(0, len(grid), 3):
+        for j in range(0, len(grid[0]), 3):
+            region = [grid[row][col] for row in range(i, i+3) for col in range(j, j+3)]
+            if len(set(region)) != len(region):
+                return False
+    return True
+    
