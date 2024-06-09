@@ -83,25 +83,54 @@ def check_sudoku(grid):
     else:
         return False
     
+    # Fonction auxiliaire pour extraire la région d'une case donnée
+def get_region(grid, i, j):
+  region_i = i // 3
+  region_j = j // 3
+  region = [grid[row][col] for row in range(region_i * 3, region_i * 3 + 3) for col in range(region_j * 3, region_j * 3 + 3)]
+  return region
+
+ #   Fonction qui vérifie si un sudoku peut être résolu par la méthode du candidat unique et retourne la grille complétée si possible.   
 def naked_single(grid):
-    if not check_sudoku(grid):
-        return False, None
-    
-    for i in range(len(grid)):
-        for j in range(len(grid[0])):
-            if grid[i][j] == 0:
-                candidates = set(range(1, 10))
-                for num in grid[i]:
-                    candidates.discard(num)
-                for row in grid:
-                    candidates.discard(row[j])
-                region_i = i // 3 * 3
-                region_j = j // 3 * 3
-                for row in range(region_i, region_i + 3):
-                    for col in range(region_j, region_j + 3):
-                        candidates.discard(grid[row][col])
-                if len(candidates) == 1:
-                    grid[i][j] = candidates.pop()
-                else:
-                    return True, None
-    return True, grid
+ 
+ # On crée une copie de la grille pour ne pas modifier la grille d'origine.
+  grid_copy = [[n for n in ligne] for ligne in grid]
+
+  # On parcourt la grille.
+  for i in range(9):
+    for j in range(9):
+      # Si la case est vide (représentée par 0), on cherche les candidats possibles.
+      if grid_copy[i][j] == 0:
+        possibles = set(range(1, 10))  # Ensemble des candidats possibles.
+
+        # On supprime les candidats déjà présents dans la ligne, la colonne et la région.
+        if not (check_rows(grid_copy[i:]) and check_cols([ligne[j] for ligne in grid_copy]) and check_regions(get_region(grid_copy, i, j))):
+          return False, None  # Sudoku invalide, on arrête
+
+        for k in range(9):
+          if grid_copy[i][k] != 0:
+            possibles.remove(grid_copy[i][k])
+          if grid_copy[k][j] != 0:
+            possibles.remove(grid_copy[k][j])
+
+        # S'il n'y a qu'un seul candidat possible, on le place dans la grille et on retourne True.
+        if len(possibles) == 1:
+          grid_copy[i][j] = list(possibles)[0]
+          return True, grid_copy
+
+  # Si aucun candidat unique n'a été trouvé, on retourne False et None.
+  return False, None
+
+
+
+# Test
+print(naked_single([[4, 0, 3, 0, 9, 6, 0, 1, 0],
+              [0, 0, 2, 8, 0, 1, 0, 0, 3],
+              [0, 1, 0, 0, 0, 0, 0, 0, 7],
+              [0, 4, 0, 7, 0, 0, 0, 2, 6],
+              [5, 0, 7, 0, 1, 0, 4, 0, 9],
+              [1, 2, 0, 0, 0, 3, 0, 8, 0],
+              [2, 0, 0, 0, 0, 0, 0, 7, 0],
+              [7, 0, 0, 2, 0, 9, 8, 0, 0],
+              [0, 6, 0, 1, 5, 0, 3, 0, 2]]))
+
