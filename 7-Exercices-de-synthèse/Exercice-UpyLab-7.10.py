@@ -1,3 +1,5 @@
+import csv
+
 """
 Exercice UpyLab 7.10 - Parcours : rouge
 Auteurs : Sébastien Hoarau - Thierry Massart - Isabelle Poirier
@@ -89,3 +91,41 @@ Comme pour les premiers programmes que vous avez écrits lors de ce MOOC, UpyLaB
 
 Si rien ne marche : consultez la FAQ sur UpyLaB 6.20.
 """
+def is_reliable(applicant):
+    for count in applicant:
+        if count != '' and int(count) > 10:
+            return False
+    return True
+
+def calculate_values(pass_fail_file, count_file):
+    pass_fail_data = []
+    count_data = []
+    with open(pass_fail_file, 'r') as file:
+        reader = csv.reader(file, delimiter=';')
+        for row in reader:
+            pass_fail_data.append(row)
+    
+    with open(count_file, 'r') as file:
+        reader = csv.reader(file, delimiter=';')
+        for row in reader:
+            count_data.append(row)
+    
+    intitules = pass_fail_data[0]
+    values = []
+    for i in range(1, len(pass_fail_data)):
+        applicant = pass_fail_data[i]
+        if is_reliable(count_data[i]):
+            value = sum([1 for result in applicant if result == 'VRAI'])
+            values.append((intitules[i-1], value))
+    
+    values.sort(key=lambda x: (-x[1], x[0]))
+    sorted_intitules = [value[0] for value in values]
+    return sorted_intitules
+
+pass_fail_file = input()
+count_file = input()
+intitules = calculate_values(pass_fail_file, count_file)
+for intitule in intitules:
+    print(intitule)
+
+#Test
